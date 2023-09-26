@@ -15,7 +15,7 @@ namespace WebApi.Controllers
         public CadeteriaController(ILogger<CadeteriaController> logger)
         {
             _logger = logger;
-            _cadeteria = Cadeteria.Instance;
+            _cadeteria = Cadeteria.Instance();
         }
 
         // GET api/cadeteria/pedidos

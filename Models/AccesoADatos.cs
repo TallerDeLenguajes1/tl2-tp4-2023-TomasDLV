@@ -70,6 +70,7 @@ namespace WebApi
 
             string contenido = File.ReadAllText("Models/cadeteria.json");
             cadeteria = JsonSerializer.Deserialize<Cadeteria>(contenido);
+            cadeteria.CrearInforme();
             
             return cadeteria;
 

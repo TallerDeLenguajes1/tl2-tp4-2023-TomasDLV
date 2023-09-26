@@ -26,7 +26,7 @@
                 "Telefono": 555555555,
                 "DatosReferenciaDireccion": "Referencia1"
             },
-            "Estado": "EnPreparacion",
+            "Estado": "Entregado",
             "IdCadeteEncargado": null
         },
         {
@@ -39,6 +39,78 @@
                 "DatosReferenciaDireccion": "Referencia2"
             },
             "Estado": "EnCamino",
+            "IdCadeteEncargado": 1
+        },
+        {
+            "Nro": 3,
+            "Obs": "Pedido urgente",
+            "InfoCliente": {
+                "Nombre": "Cliente3",
+                "Direccion": "Dirección3",
+                "Telefono": 666666666,
+                "DatosReferenciaDireccion": "Referencia2"
+            },
+            "Estado": "Entregado",
+            "IdCadeteEncargado": 2
+        },
+        {
+            "Nro": 4,
+            "Obs": "Pedido urgente",
+            "InfoCliente": {
+                "Nombre": "Cliente4",
+                "Direccion": "Dirección4",
+                "Telefono": 666234666,
+                "DatosReferenciaDireccion": "Referencia2"
+            },
+            "Estado": "Entregado",
+            "IdCadeteEncargado": 2
+        },
+        {
+            "Nro": 5,
+            "Obs": "Pedido urgente",
+            "InfoCliente": {
+                "Nombre": "Cliente2",
+                "Direccion": "Dirección2",
+                "Telefono": 666666666,
+                "DatosReferenciaDireccion": "Referencia2"
+            },
+            "Estado": "Entregado",
+            "IdCadeteEncargado": 2
+        },
+        {
+            "Nro": 6,
+            "Obs": "Pedido urgente",
+            "InfoCliente": {
+                "Nombre": "Cliente6",
+                "Direccion": "Dirección6",
+                "Telefono": 666666666,
+                "DatosReferenciaDireccion": "Referencia6"
+            },
+            "Estado": "Entregado",
+            "IdCadeteEncargado": 1
+        },
+        {
+            "Nro": 7,
+            "Obs": "Pedido urgente",
+            "InfoCliente": {
+                "Nombre": "Cliente7",
+                "Direccion": "Dirección7",
+                "Telefono": 666666666,
+                "DatosReferenciaDireccion": "Referencia7"
+            },
+            "Estado": "Entregado",
+            "IdCadeteEncargado": 2
+        },
+        {
+            "Nro": 8,
+            "Obs": "Pedido urgente",
+            "InfoCliente": {
+                "Nombre": "Cliente8",
+                "Direccion": "Dirección8",
+                "Telefono": 666666666,
+                "DatosReferenciaDireccion": "Referencia2"
+            },
+            "Estado": "Entregado",
             "IdCadeteEncargado": 1
         }
     ]
