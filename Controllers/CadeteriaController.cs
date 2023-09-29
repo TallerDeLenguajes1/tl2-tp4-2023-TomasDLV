@@ -53,6 +53,7 @@ namespace WebApi.Controllers
         {
             int cantP = _cadeteria.ListaPedidos.Count;
             _cadeteria.AgregarPedido();
+            _cadeteria.AccesoPedidos.Guardar(_cadeteria.ListaPedidos);
             if (_cadeteria.ListaPedidos.Count == cantP + 1)
             {
                 return Ok("Pedido agregado correctamente.");
@@ -69,6 +70,7 @@ namespace WebApi.Controllers
         public ActionResult AsignarPedido(int idPedido, int idCadete)
         {
             _cadeteria.AsignarPedido(idPedido, idCadete);
+            _cadeteria.AccesoPedidos.Guardar(_cadeteria.ListaPedidos);
             return Ok($"Pedido {idPedido} asignado al cadete {idCadete}.");
         }
 
@@ -77,6 +79,7 @@ namespace WebApi.Controllers
         public ActionResult CambiarEstadoPedido(int idPedido, int nuevoEstado)
         {
             _cadeteria.CambiarEstadoPedido(idPedido, nuevoEstado);
+            _cadeteria.AccesoPedidos.Guardar(_cadeteria.ListaPedidos);
             return Ok($"Estado del pedido {idPedido} cambiado a {nuevoEstado}.");
         }
 
@@ -85,6 +88,7 @@ namespace WebApi.Controllers
         public ActionResult CambiarCadetePedido(int idPedido, int idNuevoCadete)
         {
             _cadeteria.CambiarCadetePedido(idPedido, idNuevoCadete);
+            _cadeteria.AccesoPedidos.Guardar(_cadeteria.ListaPedidos);
             return Ok($"Cadete del pedido {idPedido} cambiado a {idNuevoCadete}.");
         }
     }

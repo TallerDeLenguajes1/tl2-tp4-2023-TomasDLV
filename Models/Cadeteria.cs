@@ -9,6 +9,10 @@ namespace WebApi
         private List<Pedidos> listaPedidos = new List<Pedidos>();
 
         private Informe cadInforme = new Informe();
+        private AccesoADatosCadeteria accesoCadeteria= new AccesoADatosCadeteria();
+        private AccesoADatosCadetes accesoCadetes= new AccesoADatosCadetes();
+
+        private AccesoADatosPedidos accesoPedidos= new AccesoADatosPedidos();
 
         public List<Cadete> ListaCadetes { get => listaCadetes; set => listaCadetes = value; }
         public int NroPedidosCreados { get => nroPedidosCreados; set => nroPedidosCreados = value; }
@@ -16,6 +20,10 @@ namespace WebApi
         public int Telefono { get => telefono; set => telefono = value; }
         public List<Pedidos> ListaPedidos { get => listaPedidos; set => listaPedidos = value; }
         public Informe CadInforme { get => cadInforme; set => cadInforme = value; }
+        public AccesoADatosCadeteria AccesoCadeteria { get => accesoCadeteria; set => accesoCadeteria = value; }
+        public AccesoADatosCadetes AccesoCadetes { get => accesoCadetes; set => accesoCadetes = value; }
+        public AccesoADatosPedidos AccesoPedidos { get => accesoPedidos; set => accesoPedidos = value; }
+
         private static Cadeteria instance;
         
         public static Cadeteria Instance()
@@ -24,8 +32,13 @@ namespace WebApi
                 // Crear la instancia Cadeteria si aún no existe.
                 if (instance == null)
                 {
-                    AccesoADatos cargar = new AccesoJson();
-                    instance = cargar.CargarInfoCadeteria();
+                    AccesoADatosCadeteria AccesoCadeteria= new AccesoADatosCadeteria();
+                    
+                    instance = AccesoCadeteria.Obtener();
+                    instance.ListaCadetes = instance.AccesoCadetes.Obtener();
+                    instance.ListaPedidos = instance.AccesoPedidos.Obtener();
+                    instance.NroPedidosCreados = instance.ListaPedidos.Count;
+                    
                 }
                 return instance;
             
