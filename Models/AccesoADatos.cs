@@ -24,6 +24,10 @@ namespace WebApi
             
             return cadetes;
         }
+        public void Guardar(List<Cadete> cadetes){
+            string contenido = JsonSerializer.Serialize(cadetes);
+            File.WriteAllText("Models/cadetes.json", contenido);
+        }
     }
     public class AccesoADatosPedidos 
     {

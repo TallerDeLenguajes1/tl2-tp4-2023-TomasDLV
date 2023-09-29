@@ -28,7 +28,7 @@ namespace WebApi.Controllers
         }
 
         // GET api/cadeteria/cadetes
-        
+
         [HttpGet]
         [Route("cadetes")]
 
@@ -91,5 +91,54 @@ namespace WebApi.Controllers
             _cadeteria.AccesoPedidos.Guardar(_cadeteria.ListaPedidos);
             return Ok($"Cadete del pedido {idPedido} cambiado a {idNuevoCadete}.");
         }
+
+        [HttpPost("addcadete")]
+        public ActionResult AgregarCadete(
+
+        [FromQuery] string nombre,
+        [FromQuery] string direccion,
+        [FromQuery] int telefono)
+        {
+            // Aquí puedes crear una instancia de Cadete con los parámetros proporcionados
+            Cadete nuevoCadete = new Cadete(_cadeteria.ListaCadetes.Count + 1, nombre, direccion, telefono);
+            _cadeteria.ListaCadetes.Add(nuevoCadete);
+            _cadeteria.AccesoCadetes.Guardar(_cadeteria.ListaCadetes);
+            // Haz lo que necesites con el objeto nuevoCadete
+            // Por ejemplo, agregarlo a tu lista de cadetes (_cadeteria.ListaCadetes.Add(nuevoCadete))
+
+            return Ok("Cadete agregado correctamente.");
+        }
+        [HttpGet("GetPedido/{id}")]
+        public ActionResult GetPedido(int id)
+        {
+
+            Pedidos pedido = _cadeteria.ListaPedidos.FirstOrDefault(p => p.Nro == id);
+
+            if (pedido != null)
+            {
+                return Ok(pedido);
+            }
+            else
+            {
+                return NotFound("Pedido no encontrado");
+            }
+        }
+        [HttpGet("GetCadete/{id}")]
+        public ActionResult GetCadete(int id)
+        {
+            Cadete cadete = _cadeteria.ListaCadetes.FirstOrDefault(c => c.Id == id);
+
+            if (cadete != null)
+            {
+                return Ok(cadete);
+            }
+            else
+            {
+                return NotFound("Cadete no encontrado");
+            }
+        }
+
     }
+
+
 }
